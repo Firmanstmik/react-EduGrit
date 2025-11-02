@@ -1,0 +1,238 @@
+{
+  "common": {
+    "loading": "Memuat...",
+    "save": "Simpan",
+    "cancel": "Batal",
+    "edit": "Edit",
+    "delete": "Hapus",
+    "create": "Buat",
+    "update": "Perbarui",
+    "search": "Cari",
+    "filter": "Filter",
+    "submit": "Kirim",
+    "back": "Kembali",
+    "next": "Selanjutnya",
+    "previous": "Sebelumnya",
+    "close": "Tutup",
+    "open": "Buka",
+    "yes": "Ya",
+    "no": "Tidak",
+    "confirm": "Konfirmasi",
+    "success": "Berhasil",
+    "error": "Error",
+    "warning": "Peringatan",
+    "info": "Informasi"
+  },
+  "navigation": {
+    "home": "Beranda",
+    "dashboard": "Dashboard",
+    "survey": "Survey",
+    "aspirations": "Aspirasi",
+    "profile": "Profil",
+    "admin": "Admin",
+    "login": "Masuk",
+    "logout": "Keluar",
+    "about": "Tentang Aplikasi"
+  },
+  "roles": {
+    "student": "Mahasiswa",
+    "advisor": "Dosen PA",
+    "kaprodi": "Kaprodi",
+    "head": "Ketua STMIK",
+    "admin": "Admin"
+  },
+  "auth": {
+    "login": "Masuk",
+    "username": "Username",
+    "password": "Password",
+    "loginButton": "Masuk",
+    "logoutButton": "Keluar",
+    "loginSuccess": "Berhasil masuk",
+    "loginError": "Username atau password salah",
+    "welcome": "Selamat datang",
+    "role": "Peran"
+  },
+  "home": {
+    "title": "Edu-GRIT",
+    "subtitle": "Platform AI untuk Analisis Grit Mahasiswa",
+    "welcomeTitle": "Selamat Datang di",
+    "description": "Sistem berbasis AI untuk mengukur dan melacak tingkat grit (ketekunan dan ketahanan) mahasiswa melalui analisis teks dan survei.",
+    "features": {
+      "title": "Fitur Utama",
+      "aiAnalysis": "Analisis AI",
+      "aiDescription": "Teknologi AI canggih untuk menganalisis tingkat grit mahasiswa",
+      "multilingual": "Multibahasa",
+      "multilingualDescription": "Dukungan bahasa Indonesia dan Inggris",
+      "roleBased": "Akses Berbasis Peran",
+      "roleBasedDescription": "Sistem akses yang aman berdasarkan peran pengguna",
+      "realTime": "Real-time Dashboard",
+      "realTimeDescription": "Dashboard real-time untuk monitoring dan analisis"
+    },
+    "getStarted": "Mulai Sekarang"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "student": {
+      "title": "Dashboard Pribadi",
+      "gritScore": "Skor Grit",
+      "lastSurvey": "Survey Terakhir",
+      "recommendations": "Rekomendasi",
+      "takeSurvey": "Ikuti Survey"
+    },
+    "advisor": {
+      "title": "Dashboard Dosen PA",
+      "assignedStudents": "Mahasiswa Bimbingan",
+      "totalStudents": "Total Mahasiswa",
+      "completedSurveys": "Survey Selesai",
+      "pendingSurveys": "Survey Pending"
+    },
+    "kaprodi": {
+      "title": "Dashboard Kaprodi",
+      "programStudents": "Mahasiswa Program",
+      "gritOverview": "Overview Grit",
+      "aspirations": "Aspirasi Mahasiswa"
+    },
+    "head": {
+      "title": "Dashboard Ketua STMIK",
+      "institutionalOverview": "Overview Institusi",
+      "allStudents": "Semua Mahasiswa",
+      "reports": "Laporan"
+    },
+    "admin": {
+      "title": "Dashboard Admin",
+      "userManagement": "Manajemen User",
+      "surveyControl": "Kontrol Survey",
+      "systemSettings": "Pengaturan Sistem"
+    }
+  },
+  "survey": {
+    "title": "Survey GRIT",
+    "description": "Jawab pertanyaan berikut dengan jujur dan detail untuk menganalisis tingkat grit Anda.",
+    "questions": {
+      "q1": "Apa yang memotivasi Anda untuk tetap bertahan di kuliah?",
+      "q2": "Ceritakan pengalaman ketika Anda hampir menyerah namun tetap melanjutkan.",
+      "q3": "Bagaimana Anda mengatasi kegagalan atau tantangan dalam belajar?",
+      "q4": "Apa yang membuat Anda tetap fokus pada tujuan jangka panjang?"
+    },
+    "submit": "Kirim Survey",
+    "submitting": "Mengirim...",
+    "success": "Survey berhasil dikirim",
+    "error": "Gagal mengirim survey",
+    "closed": "Survey saat ini ditutup",
+    "alreadySubmitted": "Anda sudah mengirim survey untuk semester ini"
+  },
+  "aspirations": {
+    "title": "Aspirasi Mahasiswa",
+    "submit": "Kirim Aspirasi",
+    "submitting": "Mengirim...",
+    "success": "Aspirasi berhasil dikirim",
+    "error": "Gagal mengirim aspirasi",
+    "placeholder": "Tulis aspirasi atau feedback Anda di sini...",
+    "anonymous": "Kirim sebagai anonim",
+    "filters": {
+      "latest": "Terbaru",
+      "oldest": "Terlama",
+      "month": "Berdasarkan Bulan",
+      "year": "Berdasarkan Tahun"
+    }
+  },
+  "profile": {
+    "title": "Profil",
+    "personalInfo": "Informasi Pribadi",
+    "name": "Nama",
+    "email": "Email",
+    "nim": "NIM",
+    "prodi": "Program Studi",
+    "semester": "Semester",
+    "advisor": "Dosen PA",
+    "changePassword": "Ubah Password",
+    "currentPassword": "Password Lama",
+    "newPassword": "Password Baru",
+    "confirmPassword": "Konfirmasi Password",
+    "updateSuccess": "Profil berhasil diperbarui",
+    "updateError": "Gagal memperbarui profil"
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "userManagement": {
+      "title": "Manajemen User",
+      "createUser": "Buat User Baru",
+      "editUser": "Edit User",
+      "deleteUser": "Hapus User",
+      "role": "Peran",
+      "status": "Status",
+      "active": "Aktif",
+      "inactive": "Tidak Aktif"
+    },
+    "surveyControl": {
+      "title": "Kontrol Survey",
+      "status": "Status Survey",
+      "open": "Buka Survey",
+      "close": "Tutup Survey",
+      "startDate": "Tanggal Mulai",
+      "endDate": "Tanggal Berakhir"
+    }
+  },
+  "grit": {
+    "score": "Skor Grit",
+    "level": {
+      "high": "Tinggi",
+      "moderate": "Sedang",
+      "low": "Rendah"
+    },
+    "recommendations": "Rekomendasi",
+    "analysis": "Analisis"
+  },
+  "filters": {
+    "semester": "Semester",
+    "prodi": "Program Studi",
+    "gritLevel": "Level Grit",
+    "dateRange": "Rentang Tanggal",
+    "all": "Semua"
+  },
+  "programs": {
+    "ti": "Teknik Informatika",
+    "si": "Sistem Informasi"
+  },
+  "semesters": {
+    "1": "Semester 1",
+    "3": "Semester 3",
+    "5": "Semester 5",
+    "7": "Semester 7"
+  },
+  "footer": {
+    "description": "Platform berbasis AI untuk menganalisis tingkat grit mahasiswa dan memberikan rekomendasi yang dipersonalisasi.",
+    "quickLinks": "Tautan Cepat",
+    "contact": "Kontak",
+    "developer": "Developer",
+    "institution": "Institusi",
+    "copyright": "© 2025 Edu-GRIT. Mendukung SDGs 3 & 4 untuk pendidikan dan kesejahteraan yang lebih baik."
+  },
+  "about": {
+    "title": "Tentang Edu-GRIT",
+    "subtitle": "Platform AI untuk menganalisis tingkat grit mahasiswa",
+    "missionTitle": "Misi Edu-GRIT",
+    "mission1": "Edu-GRIT adalah platform inovatif yang menggunakan teknologi Artificial Intelligence (AI) untuk menganalisis tingkat grit mahasiswa melalui analisis teks. Grit, yang terdiri dari ketekunan (perseverance) dan gairah (passion), merupakan faktor kunci dalam kesuksesan akademik dan kehidupan.",
+    "mission2": "Platform ini dirancang untuk membantu institusi pendidikan memahami dan mendukung perkembangan grit mahasiswa, sehingga dapat memberikan intervensi yang tepat sasaran untuk meningkatkan kualitas pembelajaran dan kesejahteraan mahasiswa.",
+    "sdgsTitle": "Dukungan untuk Tujuan Pembangunan Berkelanjutan (SDGs)",
+    "sdg3Title": "SDG 3: Kesehatan yang Baik",
+    "sdg3Desc": "Edu-GRIT mendukung kesehatan mental mahasiswa dengan mengidentifikasi mereka yang membutuhkan dukungan psikologis dan memberikan rekomendasi intervensi yang tepat.",
+    "sdg4Title": "SDG 4: Pendidikan Berkualitas",
+    "sdg4Desc": "Platform ini meningkatkan kualitas pendidikan dengan memberikan insights mendalam tentang motivasi dan ketekunan mahasiswa, memungkinkan pendekatan pembelajaran yang lebih personal.",
+    "techTitle": "Teknologi yang Digunakan",
+    "techAI": "AI & NLP",
+    "techAIDesc": "Natural Language Processing untuk analisis teks",
+    "techViz": "Data Visualization",
+    "techVizDesc": "Chart dan grafik interaktif untuk insights",
+    "techResp": "Responsive Design",
+    "techRespDesc": "Akses optimal di semua perangkat",
+    "devTitle": "Informasi Pengembang",
+    "devInstitution": "Institusi",
+    "devSpecialization": "Spesialisasi",
+    "devSpecValue": "Web Development, AI/ML, Educational Technology",
+    "devGitHub": "GitHub",
+    "contactTitle": "Hubungi Kami",
+    "contactDesc": "Untuk pertanyaan, saran, atau kolaborasi terkait Edu-GRIT, silakan hubungi:",
+    "contactFeedback": "Kami senang mendengar feedback dan ide-ide inovatif untuk pengembangan platform ini."
+  }
+}

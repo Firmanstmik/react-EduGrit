@@ -1,0 +1,238 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "create": "Create",
+    "update": "Update",
+    "search": "Search",
+    "filter": "Filter",
+    "submit": "Submit",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "open": "Open",
+    "yes": "Yes",
+    "no": "No",
+    "confirm": "Confirm",
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Information"
+  },
+  "navigation": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "survey": "Survey",
+    "aspirations": "Aspirations",
+    "profile": "Profile",
+    "admin": "Admin",
+    "login": "Login",
+    "logout": "Logout",
+    "about": "About App"
+  },
+  "roles": {
+    "student": "Student",
+    "advisor": "Academic Advisor",
+    "kaprodi": "Head of Program",
+    "head": "STMIK Head",
+    "admin": "Admin"
+  },
+  "auth": {
+    "login": "Login",
+    "username": "Username",
+    "password": "Password",
+    "loginButton": "Login",
+    "logoutButton": "Logout",
+    "loginSuccess": "Login successful",
+    "loginError": "Invalid username or password",
+    "welcome": "Welcome",
+    "role": "Role"
+  },
+  "home": {
+    "title": "Edu-GRIT",
+    "subtitle": "AI Platform for Student Grit Analysis",
+    "welcomeTitle": "Welcome to",
+    "description": "AI-based system for measuring and tracking student grit (perseverance and resilience) through text analysis and surveys.",
+    "features": {
+      "title": "Key Features",
+      "aiAnalysis": "AI Analysis",
+      "aiDescription": "Advanced AI technology for analyzing student grit levels",
+      "multilingual": "Multilingual",
+      "multilingualDescription": "Indonesian and English language support",
+      "roleBased": "Role-based Access",
+      "roleBasedDescription": "Secure access system based on user roles",
+      "realTime": "Real-time Dashboard",
+      "realTimeDescription": "Real-time dashboard for monitoring and analysis"
+    },
+    "getStarted": "Get Started"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "student": {
+      "title": "Personal Dashboard",
+      "gritScore": "Grit Score",
+      "lastSurvey": "Last Survey",
+      "recommendations": "Recommendations",
+      "takeSurvey": "Take Survey"
+    },
+    "advisor": {
+      "title": "Academic Advisor Dashboard",
+      "assignedStudents": "Assigned Students",
+      "totalStudents": "Total Students",
+      "completedSurveys": "Completed Surveys",
+      "pendingSurveys": "Pending Surveys"
+    },
+    "kaprodi": {
+      "title": "Head of Program Dashboard",
+      "programStudents": "Program Students",
+      "gritOverview": "Grit Overview",
+      "aspirations": "Student Aspirations"
+    },
+    "head": {
+      "title": "STMIK Head Dashboard",
+      "institutionalOverview": "Institutional Overview",
+      "allStudents": "All Students",
+      "reports": "Reports"
+    },
+    "admin": {
+      "title": "Admin Dashboard",
+      "userManagement": "User Management",
+      "surveyControl": "Survey Control",
+      "systemSettings": "System Settings"
+    }
+  },
+  "survey": {
+    "title": "GRIT Survey",
+    "description": "Answer the following questions honestly and in detail to analyze your grit level.",
+    "questions": {
+      "q1": "What motivates you to persist in your studies?",
+      "q2": "Tell us about an experience when you almost gave up but continued.",
+      "q3": "How do you overcome failures or challenges in learning?",
+      "q4": "What keeps you focused on long-term goals?"
+    },
+    "submit": "Submit Survey",
+    "submitting": "Submitting...",
+    "success": "Survey submitted successfully",
+    "error": "Failed to submit survey",
+    "closed": "Survey is currently closed",
+    "alreadySubmitted": "You have already submitted a survey for this semester"
+  },
+  "aspirations": {
+    "title": "Student Aspirations",
+    "submit": "Submit Aspiration",
+    "submitting": "Submitting...",
+    "success": "Aspiration submitted successfully",
+    "error": "Failed to submit aspiration",
+    "placeholder": "Write your aspirations or feedback here...",
+    "anonymous": "Submit anonymously",
+    "filters": {
+      "latest": "Latest",
+      "oldest": "Oldest",
+      "month": "By Month",
+      "year": "By Year"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "personalInfo": "Personal Information",
+    "name": "Name",
+    "email": "Email",
+    "nim": "Student ID",
+    "prodi": "Study Program",
+    "semester": "Semester",
+    "advisor": "Academic Advisor",
+    "changePassword": "Change Password",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "updateSuccess": "Profile updated successfully",
+    "updateError": "Failed to update profile"
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "userManagement": {
+      "title": "User Management",
+      "createUser": "Create New User",
+      "editUser": "Edit User",
+      "deleteUser": "Delete User",
+      "role": "Role",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "surveyControl": {
+      "title": "Survey Control",
+      "status": "Survey Status",
+      "open": "Open Survey",
+      "close": "Close Survey",
+      "startDate": "Start Date",
+      "endDate": "End Date"
+    }
+  },
+  "grit": {
+    "score": "Grit Score",
+    "level": {
+      "high": "High",
+      "moderate": "Moderate",
+      "low": "Low"
+    },
+    "recommendations": "Recommendations",
+    "analysis": "Analysis"
+  },
+  "filters": {
+    "semester": "Semester",
+    "prodi": "Study Program",
+    "gritLevel": "Grit Level",
+    "dateRange": "Date Range",
+    "all": "All"
+  },
+  "programs": {
+    "ti": "Computer Engineering",
+    "si": "Information Systems"
+  },
+  "semesters": {
+    "1": "Semester 1",
+    "3": "Semester 3",
+    "5": "Semester 5",
+    "7": "Semester 7"
+  },
+  "footer": {
+    "description": "AI-based platform for analyzing student grit levels and providing personalized recommendations.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "developer": "Developer",
+    "institution": "Institution",
+    "copyright": "© 2025 Edu-GRIT. Supporting SDGs 3 & 4 for better education and well-being."
+  },
+  "about": {
+    "title": "About Edu-GRIT",
+    "subtitle": "AI platform for analyzing student grit levels",
+    "missionTitle": "Edu-GRIT Mission",
+    "mission1": "Edu-GRIT is an innovative platform that uses Artificial Intelligence (AI) technology to analyze student grit levels through text analysis. Grit, which consists of perseverance and passion, is a key factor in academic and life success.",
+    "mission2": "This platform is designed to help educational institutions understand and support student grit development, enabling targeted interventions to improve learning quality and student well-being.",
+    "sdgsTitle": "Support for Sustainable Development Goals (SDGs)",
+    "sdg3Title": "SDG 3: Good Health and Well-being",
+    "sdg3Desc": "Edu-GRIT supports student mental health by identifying those who need psychological support and providing appropriate intervention recommendations.",
+    "sdg4Title": "SDG 4: Quality Education",
+    "sdg4Desc": "This platform improves education quality by providing deep insights into student motivation and perseverance, enabling more personalized learning approaches.",
+    "techTitle": "Technologies Used",
+    "techAI": "AI & NLP",
+    "techAIDesc": "Natural Language Processing for text analysis",
+    "techViz": "Data Visualization",
+    "techVizDesc": "Interactive charts and graphs for insights",
+    "techResp": "Responsive Design",
+    "techRespDesc": "Optimal access on all devices",
+    "devTitle": "Developer Information",
+    "devInstitution": "Institution",
+    "devSpecialization": "Specialization",
+    "devSpecValue": "Web Development, AI/ML, Educational Technology",
+    "devGitHub": "GitHub",
+    "contactTitle": "Contact Us",
+    "contactDesc": "For questions, suggestions, or collaboration related to Edu-GRIT, please contact:",
+    "contactFeedback": "We would love to hear feedback and innovative ideas for the development of this platform."
+  }
+}
