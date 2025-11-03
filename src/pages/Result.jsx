@@ -33,9 +33,9 @@ const Result = () => {
   }, []);
 
   const getIntervention = (score) => {
-    if (score >= 80) return 'Excellent grit level! Continue current strategies and consider mentoring others.';
-    if (score >= 60) return 'Good grit level. Focus on maintaining motivation and setting clear goals.';
-    return 'Consider seeking academic counseling and developing resilience strategies.';
+    if (score >= 80) return 'Tingkat grit yang sangat baik! Pertahankan strategi saat ini dan pertimbangkan untuk membimbing mahasiswa lain.';
+    if (score >= 60) return 'Tingkat grit yang baik. Fokus pada mempertahankan motivasi dan menetapkan tujuan yang jelas.';
+    return 'Pertimbangkan untuk mencari konseling akademik dan mengembangkan strategi ketahanan.';
   };
 
   const getScoreColor = (score) => {
@@ -45,16 +45,16 @@ const Result = () => {
   };
 
   const getScoreStatus = (score) => {
-    if (score >= 80) return 'Strong';
-    if (score >= 60) return 'Moderate';
-    return 'Low';
+    if (score >= 80) return 'Tinggi';
+    if (score >= 60) return 'Sedang';
+    return 'Rendah';
   };
 
   const chartData = analysisResult ? [
-    { name: 'Perseverance', value: analysisResult.detailedAnalysis.perseverance },
-    { name: 'Passion', value: analysisResult.detailedAnalysis.passion },
-    { name: 'Resilience', value: analysisResult.detailedAnalysis.resilience },
-    { name: 'Focus', value: analysisResult.detailedAnalysis.focus }
+    { name: 'Ketekunan', value: analysisResult.detailedAnalysis.perseverance },
+    { name: 'Gairah', value: analysisResult.detailedAnalysis.passion },
+    { name: 'Ketahanan', value: analysisResult.detailedAnalysis.resilience },
+    { name: 'Fokus', value: analysisResult.detailedAnalysis.focus }
   ] : [];
 
   // const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444'];
