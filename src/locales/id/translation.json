@@ -181,7 +181,38 @@
       "low": "Rendah"
     },
     "recommendations": "Rekomendasi",
-    "analysis": "Analisis"
+    "analysis": "Analisis",
+    "components": {
+      "perseverance": "Ketekunan",
+      "passion": "Gairah",
+      "resilience": "Ketahanan",
+      "focus": "Fokus"
+    }
+  },
+  "result": {
+    "title": "Hasil Analisis Grit",
+    "subtitle": "Berikut adalah analisis mendalam tentang tingkat grit Anda",
+    "yourScore": "Skor Grit Anda",
+    "lastSurvey": "Survey Terakhir",
+    "congratulations": "Selamat",
+    "scoreMessage": "Tingkat grit Anda menunjukkan",
+    "levelLabel": "level",
+    "detailedAnalysis": "Analisis Detail",
+    "keywordsDetected": "Kata Kunci yang Terdeteksi",
+    "interpretation": "Interpretasi",
+    "interpretationText": "Kata kunci ini menunjukkan pola pikir dan motivasi yang teridentifikasi dalam respons Anda. Mereka membantu memahami aspek-aspek grit yang paling menonjol.",
+    "interventionRecommendation": "Rekomendasi Intervensi",
+    "intervention": {
+      "high": "Tingkat grit yang sangat baik! Pertahankan strategi saat ini dan pertimbangkan untuk membimbing mahasiswa lain.",
+      "moderate": "Tingkat grit yang baik. Fokus pada mempertahankan motivasi dan menetapkan tujuan yang jelas.",
+      "low": "Pertimbangkan untuk mencari konseling akademik dan mengembangkan strategi ketahanan."
+    },
+    "actions": {
+      "reanalyze": "Analisis Ulang",
+      "viewDashboard": "Lihat Dashboard",
+      "backHome": "Kembali ke Beranda"
+    },
+    "analyzing": "Menganalisis respons Anda..."
   },
   "filters": {
     "semester": "Semester",

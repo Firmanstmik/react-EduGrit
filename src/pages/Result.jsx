@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Card from '../components/Card';
 
 const Result = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [analysisResult, setAnalysisResult] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -33,9 +35,9 @@ const Result = () => {
   }, []);
 
   const getIntervention = (score) => {
-    if (score >= 80) return 'Tingkat grit yang sangat baik! Pertahankan strategi saat ini dan pertimbangkan untuk membimbing mahasiswa lain.';
-    if (score >= 60) return 'Tingkat grit yang baik. Fokus pada mempertahankan motivasi dan menetapkan tujuan yang jelas.';
-    return 'Pertimbangkan untuk mencari konseling akademik dan mengembangkan strategi ketahanan.';
+    if (score >= 80) return t('result.intervention.high');
+    if (score >= 60) return t('result.intervention.moderate');
+    return t('result.intervention.low');
   };
 
   const getScoreColor = (score) => {
@@ -45,16 +47,16 @@ const Result = () => {
   };
 
   const getScoreStatus = (score) => {
-    if (score >= 80) return 'Tinggi';
-    if (score >= 60) return 'Sedang';
-    return 'Rendah';
+    if (score >= 80) return t('grit.level.high');
+    if (score >= 60) return t('grit.level.moderate');
+    return t('grit.level.low');
   };
 
   const chartData = analysisResult ? [
-    { name: 'Ketekunan', value: analysisResult.detailedAnalysis.perseverance },
-    { name: 'Gairah', value: analysisResult.detailedAnalysis.passion },
-    { name: 'Ketahanan', value: analysisResult.detailedAnalysis.resilience },
-    { name: 'Fokus', value: analysisResult.detailedAnalysis.focus }
+    { name: t('grit.components.perseverance'), value: analysisResult.detailedAnalysis.perseverance },
+    { name: t('grit.components.passion'), value: analysisResult.detailedAnalysis.passion },
+    { name: t('grit.components.resilience'), value: analysisResult.detailedAnalysis.resilience },
+    { name: t('grit.components.focus'), value: analysisResult.detailedAnalysis.focus }
   ] : [];
 
   // const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444'];
@@ -64,7 +66,7 @@ const Result = () => {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto mb-4"></div>
-          <p className="text-lg text-gray-600">Menganalisis respons Anda...</p>
+          <p className="text-lg text-gray-600">{t('result.analyzing')}</p>
         </div>
       </div>
     );
@@ -75,17 +77,17 @@ const Result = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-4">
-            Hasil Analisis Grit
+            {t('result.title')}
           </h1>
           <p className="text-lg text-gray-600">
-            Berikut adalah analisis mendalam tentang tingkat grit Anda
+            {t('result.subtitle')}
           </p>
         </div>
 
         {/* Main Score Card */}
         <Card className="mb-8">
           <div className="text-center">
-            <h2 className="text-2xl font-semibold mb-4">Skor Grit Anda</h2>
+            <h2 className="text-2xl font-semibold mb-4">{t('result.yourScore')}</h2>
             <div className="flex items-center justify-center mb-6">
               <div className="relative">
                 <div className="w-32 h-32 rounded-full border-8 border-gray-200 flex items-center justify-center">
@@ -105,8 +107,8 @@ const Result = () => {
               </div>
             </div>
             <p className="text-lg text-gray-700 mb-4">
-              Selamat, <strong>{analysisResult.studentName}</strong>! 
-              Tingkat grit Anda menunjukkan {getScoreStatus(analysisResult.gritScore).toLowerCase()} level.
+              {t('result.congratulations')}, <strong>{analysisResult.studentName}</strong>! 
+              {t('result.scoreMessage')} {getScoreStatus(analysisResult.gritScore).toLowerCase()} {t('result.levelLabel')}.
             </p>
           </div>
         </Card>
@@ -114,7 +116,7 @@ const Result = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Detailed Analysis Chart */}
           <Card>
-            <h3 className="text-xl font-semibold mb-4">Analisis Detail</h3>
+            <h3 className="text-xl font-semibold mb-4">{t('result.detailedAnalysis')}</h3>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={chartData}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -128,7 +130,7 @@ const Result = () => {
 
           {/* Keywords Detected */}
           <Card>
-            <h3 className="text-xl font-semibold mb-4">Kata Kunci yang Terdeteksi</h3>
+            <h3 className="text-xl font-semibold mb-4">{t('result.keywordsDetected')}</h3>
             <div className="flex flex-wrap gap-2">
               {analysisResult.keywords.map((keyword, index) => (
                 <span
@@ -140,10 +142,9 @@ const Result = () => {
               ))}
             </div>
             <div className="mt-6">
-              <h4 className="font-semibold text-gray-900 mb-2">Interpretasi:</h4>
+              <h4 className="font-semibold text-gray-900 mb-2">{t('result.interpretation')}:</h4>
               <p className="text-gray-600 text-sm">
-                Kata kunci ini menunjukkan pola pikir dan motivasi yang teridentifikasi dalam respons Anda. 
-                Mereka membantu memahami aspek-aspek grit yang paling menonjol.
+                {t('result.interpretationText')}
               </p>
             </div>
           </Card>
@@ -151,7 +152,7 @@ const Result = () => {
 
         {/* Intervention Recommendation */}
         <Card className="mb-8">
-          <h3 className="text-xl font-semibold mb-4">Rekomendasi Intervensi</h3>
+          <h3 className="text-xl font-semibold mb-4">{t('result.interventionRecommendation')}</h3>
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4">
             <p className="text-gray-700">{analysisResult.intervention}</p>
           </div>
@@ -163,19 +164,19 @@ const Result = () => {
             onClick={() => navigate('/survey')}
             className="btn-primary text-lg px-8 py-3"
           >
-            Analisis Ulang
+            {t('result.actions.reanalyze')}
           </button>
           <button
             onClick={() => navigate('/dashboard')}
             className="btn-secondary text-lg px-8 py-3"
           >
-            Lihat Dashboard
+            {t('result.actions.viewDashboard')}
           </button>
           <button
             onClick={() => navigate('/')}
             className="btn-secondary text-lg px-8 py-3"
           >
-            Kembali ke Beranda
+            {t('result.actions.backHome')}
           </button>
         </div>
       </div>

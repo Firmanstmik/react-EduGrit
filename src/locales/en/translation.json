@@ -181,7 +181,38 @@
       "low": "Low"
     },
     "recommendations": "Recommendations",
-    "analysis": "Analysis"
+    "analysis": "Analysis",
+    "components": {
+      "perseverance": "Perseverance",
+      "passion": "Passion",
+      "resilience": "Resilience",
+      "focus": "Focus"
+    }
+  },
+  "result": {
+    "title": "Grit Analysis Result",
+    "subtitle": "Here is an in-depth analysis of your grit level",
+    "yourScore": "Your Grit Score",
+    "lastSurvey": "Last Survey",
+    "congratulations": "Congratulations",
+    "scoreMessage": "Your grit level shows",
+    "levelLabel": "level",
+    "detailedAnalysis": "Detailed Analysis",
+    "keywordsDetected": "Keywords Detected",
+    "interpretation": "Interpretation",
+    "interpretationText": "These keywords indicate the mindset and motivation identified in your responses. They help understand the most prominent aspects of grit.",
+    "interventionRecommendation": "Intervention Recommendation",
+    "intervention": {
+      "high": "Excellent grit level! Continue current strategies and consider mentoring other students.",
+      "moderate": "Good grit level. Focus on maintaining motivation and setting clear goals.",
+      "low": "Consider seeking academic counseling and developing resilience strategies."
+    },
+    "actions": {
+      "reanalyze": "Re-analyze",
+      "viewDashboard": "View Dashboard",
+      "backHome": "Back to Home"
+    },
+    "analyzing": "Analyzing your responses..."
   },
   "filters": {
     "semester": "Semester",
