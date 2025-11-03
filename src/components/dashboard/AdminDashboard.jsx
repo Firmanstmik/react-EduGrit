@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import toast from 'react-hot-toast';
 import Card from '../Card';
 
 const AdminDashboard = () => {
@@ -7,8 +8,25 @@ const AdminDashboard = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('overview');
+  const [showModal, setShowModal] = useState(false);
+  const [modalMode, setModalMode] = useState('create'); // 'create' or 'edit'
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    username: '',
+    email: '',
+    password: '',
+    role: 'student',
+    prodi: 'TI',
+    semester: '1',
+    status: 'active'
+  });
 
   useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = () => {
     // Mock data for admin dashboard
     setTimeout(() => {
       setData({
@@ -26,20 +44,132 @@ const AdminDashboard = () => {
           { id: 3, text: 'Jadwal kuliah terlalu padat', date: '2024-01-18', isAnonymous: true }
         ],
         users: [
-          { id: 1, name: 'Firman Maulana', username: 'TI19220003', role: 'student', email: 'firman@student.stmik.ac.id', status: 'active' },
-          { id: 2, name: 'Jihadul Akbar S.Kom.,M.Kom', username: 'dosen001', role: 'advisor', email: 'jihadul@stmik.ac.id', status: 'active' },
-          { id: 3, name: 'Sofiansyah Fadli S.Kom.,M.Kom', username: 'kaprodi_ti', role: 'kaprodi', email: 'sofiansyah@stmik.ac.id', status: 'active' }
+          { id: 1, name: 'Firman Maulana', username: 'TI19220003', role: 'student', email: 'firman@student.stmik.ac.id', prodi: 'TI', semester: '7', status: 'active' },
+          { id: 2, name: 'Rizal', username: 'TI19220004', role: 'student', email: 'rizal@student.stmik.ac.id', prodi: 'TI', semester: '3', status: 'active' },
+          { id: 3, name: 'Melinda', username: 'TI19220005', role: 'student', email: 'melinda@student.stmik.ac.id', prodi: 'TI', semester: '5', status: 'active' },
+          { id: 4, name: 'Nora', username: 'TI19220006', role: 'student', email: 'nora@student.stmik.ac.id', prodi: 'TI', semester: '3', status: 'active' },
+          { id: 5, name: 'Herman', username: 'TI19220007', role: 'student', email: 'herman@student.stmik.ac.id', prodi: 'TI', semester: '5', status: 'active' },
+          { id: 6, name: 'Hasan', username: 'TI19220008', role: 'student', email: 'hasan@student.stmik.ac.id', prodi: 'TI', semester: '3', status: 'active' },
+          { id: 7, name: 'Jihadul Akbar S.Kom.,M.Kom', username: 'dosen001', role: 'advisor', email: 'jihadul@stmik.ac.id', status: 'active' },
+          { id: 8, name: 'Sofiansyah Fadli S.Kom.,M.Kom', username: 'kaprodi_ti', role: 'kaprodi', email: 'sofiansyah@stmik.ac.id', prodi: 'TI', status: 'active' },
+          { id: 9, name: 'Dr. Dedi Kurniawan', username: 'kaprodi_si', role: 'kaprodi', email: 'dedi@stmik.ac.id', prodi: 'SI', status: 'active' },
+          { id: 10, name: 'Khairul Imtihan S.Kom.,M.Kom', username: 'ketua', role: 'head', email: 'imtihan@stmik.ac.id', status: 'active' },
+          { id: 11, name: 'Admin System', username: 'admin', role: 'admin', email: 'admin@stmik.ac.id', status: 'active' }
         ]
       });
       setLoading(false);
     }, 1000);
-  }, []);
+  };
 
   const toggleSurveyStatus = () => {
     setData(prev => ({
       ...prev,
       surveyStatus: prev.surveyStatus === 'open' ? 'closed' : 'open'
     }));
+    toast.success(`Survey ${data.surveyStatus === 'open' ? 'ditutup' : 'dibuka'}`);
+  };
+
+  const openCreateModal = () => {
+    setModalMode('create');
+    setSelectedUser(null);
+    setFormData({
+      name: '',
+      username: '',
+      email: '',
+      password: '',
+      role: 'student',
+      prodi: 'TI',
+      semester: '1',
+      status: 'active'
+    });
+    setShowModal(true);
+  };
+
+  const openEditModal = (user) => {
+    setModalMode('edit');
+    setSelectedUser(user);
+    setFormData({
+      name: user.name,
+      username: user.username,
+      email: user.email,
+      password: '',
+      role: user.role,
+      prodi: user.prodi || 'TI',
+      semester: user.semester || '1',
+      status: user.status
+    });
+    setShowModal(true);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if (modalMode === 'create') {
+      // Create new user
+      const newUser = {
+        id: data.users.length + 1,
+        ...formData
+      };
+      setData(prev => ({
+        ...prev,
+        users: [...prev.users, newUser],
+        totalUsers: prev.totalUsers + 1,
+        students: formData.role === 'student' ? prev.students + 1 : prev.students,
+        advisors: formData.role === 'advisor' ? prev.advisors + 1 : prev.advisors,
+        kaprodi: formData.role === 'kaprodi' ? prev.kaprodi + 1 : prev.kaprodi,
+        admins: formData.role === 'admin' ? prev.admins + 1 : prev.admins
+      }));
+      toast.success('User berhasil ditambahkan!');
+    } else {
+      // Edit existing user
+      setData(prev => ({
+        ...prev,
+        users: prev.users.map(user => 
+          user.id === selectedUser.id 
+            ? { ...user, ...formData }
+            : user
+        )
+      }));
+      toast.success('User berhasil diupdate!');
+    }
+    
+    setShowModal(false);
+  };
+
+  const handleDelete = (userId) => {
+    if (window.confirm('Apakah Anda yakin ingin menghapus user ini?')) {
+      const userToDelete = data.users.find(u => u.id === userId);
+      setData(prev => ({
+        ...prev,
+        users: prev.users.filter(user => user.id !== userId),
+        totalUsers: prev.totalUsers - 1,
+        students: userToDelete.role === 'student' ? prev.students - 1 : prev.students,
+        advisors: userToDelete.role === 'advisor' ? prev.advisors - 1 : prev.advisors,
+        kaprodi: userToDelete.role === 'kaprodi' ? prev.kaprodi - 1 : prev.kaprodi,
+        admins: userToDelete.role === 'admin' ? prev.admins - 1 : prev.admins
+      }));
+      toast.success('User berhasil dihapus!');
+    }
+  };
+
+  const toggleUserStatus = (userId) => {
+    setData(prev => ({
+      ...prev,
+      users: prev.users.map(user => 
+        user.id === userId 
+          ? { ...user, status: user.status === 'active' ? 'inactive' : 'active' }
+          : user
+      )
+    }));
+    toast.success('Status user berhasil diubah!');
   };
 
   if (loading) {
@@ -192,8 +322,8 @@ const AdminDashboard = () => {
             <h3 className="text-lg font-semibold text-gray-900">
               {t('admin.userManagement.title')}
             </h3>
-            <button className="btn-primary">
-              {t('admin.userManagement.createUser')}
+            <button onClick={openCreateModal} className="btn-primary">
+              + Tambah User Baru
             </button>
           </div>
           <div className="overflow-x-auto">
@@ -204,13 +334,13 @@ const AdminDashboard = () => {
                     User
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    {t('admin.userManagement.role')}
+                    Role
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Email
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    {t('admin.userManagement.status')}
+                    Status
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Aksi
@@ -230,27 +360,44 @@ const AdminDashboard = () => {
                         </div>
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {t(`roles.${user.role}`)}
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <span className={`px-2 py-1 text-xs font-semibold rounded-full ${
+                        user.role === 'student' ? 'bg-blue-100 text-blue-800' :
+                        user.role === 'advisor' ? 'bg-green-100 text-green-800' :
+                        user.role === 'kaprodi' ? 'bg-yellow-100 text-yellow-800' :
+                        user.role === 'head' ? 'bg-purple-100 text-purple-800' :
+                        'bg-red-100 text-red-800'
+                      }`}>
+                        {t(`roles.${user.role}`)}
+                      </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                       {user.email}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                        user.status === 'active' 
-                          ? 'bg-green-100 text-green-800' 
-                          : 'bg-red-100 text-red-800'
-                      }`}>
-                        {user.status === 'active' ? t('admin.userManagement.active') : t('admin.userManagement.inactive')}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                      <button className="text-primary-600 hover:text-primary-900 mr-3">
-                        {t('common.edit')}
+                      <button
+                        onClick={() => toggleUserStatus(user.id)}
+                        className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full cursor-pointer ${
+                          user.status === 'active' 
+                            ? 'bg-green-100 text-green-800 hover:bg-green-200' 
+                            : 'bg-red-100 text-red-800 hover:bg-red-200'
+                        }`}
+                      >
+                        {user.status === 'active' ? 'Aktif' : 'Nonaktif'}
                       </button>
-                      <button className="text-red-600 hover:text-red-900">
-                        {t('common.delete')}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                      <button 
+                        onClick={() => openEditModal(user)}
+                        className="text-primary-600 hover:text-primary-900"
+                      >
+                        Edit
+                      </button>
+                      <button 
+                        onClick={() => handleDelete(user.id)}
+                        className="text-red-600 hover:text-red-900"
+                      >
+                        Hapus
                       </button>
                     </td>
                   </tr>
@@ -286,6 +433,182 @@ const AdminDashboard = () => {
             ))}
           </div>
         </Card>
+      )}
+
+      {/* Modal for Create/Edit User */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-2xl font-bold text-gray-900">
+                  {modalMode === 'create' ? 'Tambah User Baru' : 'Edit User'}
+                </h2>
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="text-gray-400 hover:text-gray-600"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Nama Lengkap *
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="input-field"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Username/NIM *
+                    </label>
+                    <input
+                      type="text"
+                      name="username"
+                      value={formData.username}
+                      onChange={handleInputChange}
+                      className="input-field"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="input-field"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Password {modalMode === 'edit' && '(kosongkan jika tidak diubah)'}
+                    </label>
+                    <input
+                      type="password"
+                      name="password"
+                      value={formData.password}
+                      onChange={handleInputChange}
+                      className="input-field"
+                      required={modalMode === 'create'}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Role *
+                    </label>
+                    <select
+                      name="role"
+                      value={formData.role}
+                      onChange={handleInputChange}
+                      className="input-field"
+                      required
+                    >
+                      <option value="student">Mahasiswa</option>
+                      <option value="advisor">Dosen PA</option>
+                      <option value="kaprodi">Kaprodi</option>
+                      <option value="head">Ketua STMIK</option>
+                      <option value="admin">Admin</option>
+                    </select>
+                  </div>
+
+                  {(formData.role === 'student' || formData.role === 'kaprodi') && (
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Program Studi *
+                      </label>
+                      <select
+                        name="prodi"
+                        value={formData.prodi}
+                        onChange={handleInputChange}
+                        className="input-field"
+                        required
+                      >
+                        <option value="TI">Teknik Informatika</option>
+                        <option value="SI">Sistem Informasi</option>
+                      </select>
+                    </div>
+                  )}
+
+                  {formData.role === 'student' && (
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Semester *
+                      </label>
+                      <select
+                        name="semester"
+                        value={formData.semester}
+                        onChange={handleInputChange}
+                        className="input-field"
+                        required
+                      >
+                        <option value="1">Semester 1</option>
+                        <option value="2">Semester 2</option>
+                        <option value="3">Semester 3</option>
+                        <option value="4">Semester 4</option>
+                        <option value="5">Semester 5</option>
+                        <option value="6">Semester 6</option>
+                        <option value="7">Semester 7</option>
+                        <option value="8">Semester 8</option>
+                      </select>
+                    </div>
+                  )}
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Status *
+                    </label>
+                    <select
+                      name="status"
+                      value={formData.status}
+                      onChange={handleInputChange}
+                      className="input-field"
+                      required
+                    >
+                      <option value="active">Aktif</option>
+                      <option value="inactive">Nonaktif</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="flex justify-end space-x-3 pt-4">
+                  <button
+                    type="button"
+                    onClick={() => setShowModal(false)}
+                    className="btn-secondary"
+                  >
+                    Batal
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn-primary"
+                  >
+                    {modalMode === 'create' ? 'Tambah User' : 'Simpan Perubahan'}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
