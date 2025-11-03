@@ -10,31 +10,31 @@ const Dashboard = () => {
   const { user, hasRole } = useAuth();
 
   if (!user) {
-    return <div>Loading...</div>;
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+      </div>
+    );
   }
 
-  // Route to role-specific dashboard
-  if (hasRole('student')) {
-    return <StudentDashboard />;
-  }
-
-  if (hasRole('advisor')) {
-    return <AdvisorDashboard />;
-  }
-
-  if (hasRole('kaprodi')) {
-    return <KaprodiDashboard />;
-  }
-
-  if (hasRole('head')) {
-    return <HeadDashboard />;
-  }
-
-  if (hasRole('admin')) {
-    return <AdminDashboard />;
-  }
-
-  return <div>Access denied</div>;
+  return (
+    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Route to role-specific dashboard */}
+        {hasRole('student') && <StudentDashboard />}
+        {hasRole('advisor') && <AdvisorDashboard />}
+        {hasRole('kaprodi') && <KaprodiDashboard />}
+        {hasRole('head') && <HeadDashboard />}
+        {hasRole('admin') && <AdminDashboard />}
+        
+        {!hasRole(['student', 'advisor', 'kaprodi', 'head', 'admin']) && (
+          <div className="text-center py-12">
+            <p className="text-gray-600">Access denied</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default Dashboard;
