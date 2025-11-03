@@ -29,13 +29,17 @@ export const AuthProvider = ({ children }) => {
     try {
       // Mock authentication - in real app, this would be an API call
       const mockUsers = {
-        'TI19220003': { id: 1, username: 'TI19220003', name: 'Firman Maulana', role: 'student', nim: 'TI19220003', prodi: 'TI', semester: 3, email: 'ahmad@student.stmik.ac.id' },
-        '2021002': { id: 2, username: '2021002', name: 'Siti Nurhaliza', role: 'student', nim: '2021002', prodi: 'SI', semester: 5, email: 'siti@student.stmik.ac.id' },
-        'dosen001': { id: 3, username: 'dosen001', name: 'Dr. Budi Santoso', role: 'advisor', email: 'budi@stmik.ac.id' },
-        'kaprodi_ti': { id: 4, username: 'kaprodi_ti', name: 'Sofiansyah Fadli S.Kom.,M.Kom', role: 'kaprodi', prodi: 'TI', email: 'sofiansyah@stmik.ac.id' },
-        'kaprodi_si': { id: 5, username: 'kaprodi_si', name: 'Dr. Dedi Kurniawan', role: 'kaprodi', prodi: 'SI', email: 'dedi@stmik.ac.id' },
-        'ketua': { id: 6, username: 'ketua', name: 'Khairul Imtihan S.Kom.,M.Kom', role: 'head', email: 'Imtihan@stmik.ac.id' },
-        'admin': { id: 7, username: 'admin', name: 'Admin System', role: 'admin', email: 'admin@stmik.ac.id' }
+        'TI19220003': { id: 1, username: 'TI19220003', name: 'Firman Maulana', role: 'student', nim: 'TI19220003', prodi: 'TI', semester: 3, email: 'firman@student.stmik.ac.id' },
+        'TI19220004': { id: 2, username: 'TI19220004', name: 'Rizal', role: 'student', nim: 'TI19220004', prodi: 'TI', semester: 3, email: 'rizal@student.stmik.ac.id' },
+        'TI19220005': { id: 3, username: 'TI19220005', name: 'Melinda', role: 'student', nim: 'TI19220005', prodi: 'TI', semester: 5, email: 'melinda@student.stmik.ac.id' },
+        'TI19220006': { id: 4, username: 'TI19220006', name: 'Nora', role: 'student', nim: 'TI19220006', prodi: 'TI', semester: 3, email: 'nora@student.stmik.ac.id' },
+        'TI19220007': { id: 5, username: 'TI19220007', name: 'Herman', role: 'student', nim: 'TI19220007', prodi: 'TI', semester: 5, email: 'herman@student.stmik.ac.id' },
+        'TI19220008': { id: 6, username: 'TI19220008', name: 'Hasan', role: 'student', nim: 'TI19220008', prodi: 'TI', semester: 3, email: 'hasan@student.stmik.ac.id' },
+        'dosen001': { id: 7, username: 'dosen001', name: 'Jihadul Akbar S.Kom.,M.Kom', role: 'advisor', email: 'jihadul@stmik.ac.id' },
+        'kaprodi_ti': { id: 8, username: 'kaprodi_ti', name: 'Sofiansyah Fadli S.Kom.,M.Kom', role: 'kaprodi', prodi: 'TI', email: 'sofiansyah@stmik.ac.id' },
+        'kaprodi_si': { id: 9, username: 'kaprodi_si', name: 'Dr. Dedi Kurniawan', role: 'kaprodi', prodi: 'SI', email: 'dedi@stmik.ac.id' },
+        'ketua': { id: 10, username: 'ketua', name: 'Khairul Imtihan S.Kom.,M.Kom', role: 'head', email: 'Imtihan@stmik.ac.id' },
+        'admin': { id: 11, username: 'admin', name: 'Admin System', role: 'admin', email: 'admin@stmik.ac.id' }
       };
 
       const userData = mockUsers[username];

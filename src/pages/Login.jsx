@@ -123,10 +123,11 @@ const Login = () => {
           <div className="mt-6 p-4 bg-gray-50 rounded-lg">
             <h3 className="text-sm font-medium text-gray-900 mb-2">Demo Credentials:</h3>
             <div className="text-xs text-gray-600 space-y-1">
-              <div><strong>Student:</strong> TI19220003 / TI19220003</div>
-              <div><strong>Advisor:</strong> dosen001 / dosen001</div>
+              <div><strong>Student 1:</strong> TI19220003 / TI19220003 (Firman Maulana)</div>
+              <div><strong>Student 2:</strong> TI19220004 / TI19220004 (Rizal)</div>
+              <div><strong>Student 3:</strong> TI19220005 / TI19220005 (Melinda)</div>
+              <div><strong>Advisor:</strong> dosen001 / dosen001 (Jihadul Akbar)</div>
               <div><strong>Kaprodi TI:</strong> kaprodi_ti / kaprodi_ti</div>
-              <div><strong>Kaprodi SI:</strong> kaprodi_si / kaprodi_si</div>
               <div><strong>Head:</strong> ketua / ketua</div>
               <div><strong>Admin:</strong> admin / admin</div>
             </div>

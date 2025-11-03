@@ -19,11 +19,11 @@ const AdvisorDashboard = () => {
         completedSurveys: 20,
         pendingSurveys: 5,
         students: [
-          { id: 1, name: 'Ahmad Rizki', nim: '2021001', semester: 3, gritScore: 85, status: 'completed' },
-          { id: 2, name: 'Siti Nurhaliza', nim: '2021002', semester: 5, gritScore: 72, status: 'completed' },
-          { id: 3, name: 'Budi Santoso', nim: '2021003', semester: 3, gritScore: 58, status: 'pending' },
-          { id: 4, name: 'Maya Sari', nim: '2021004', semester: 5, gritScore: 91, status: 'completed' },
-          { id: 5, name: 'Dedi Kurniawan', nim: '2021005', semester: 3, gritScore: 65, status: 'completed' }
+          { id: 1, name: 'Rizal', nim: 'TI19220004', semester: 3, gritScore: 85, status: 'completed' },
+          { id: 2, name: 'Melinda', nim: 'TI19220005', semester: 5, gritScore: 72, status: 'completed' },
+          { id: 3, name: 'Nora', nim: 'TI19220006', semester: 3, gritScore: 58, status: 'pending' },
+          { id: 4, name: 'Herman', nim: 'TI19220007', semester: 5, gritScore: 91, status: 'completed' },
+          { id: 5, name: 'Hasan', nim: 'TI19220008', semester: 3, gritScore: 65, status: 'completed' }
         ]
       });
       setLoading(false);
