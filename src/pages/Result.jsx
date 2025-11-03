@@ -16,6 +16,12 @@ const Result = () => {
     // Simulate API call to get analysis result
     const surveyData = JSON.parse(localStorage.getItem('surveyData') || '{}');
     
+    const getIntervention = (score) => {
+      if (score >= 80) return t('result.intervention.high');
+      if (score >= 60) return t('result.intervention.moderate');
+      return t('result.intervention.low');
+    };
+    
     setTimeout(() => {
       // Mock analysis result
       const mockResult = {
@@ -34,13 +40,7 @@ const Result = () => {
       setAnalysisResult(mockResult);
       setLoading(false);
     }, 2000);
-  }, [user]);
-
-  const getIntervention = (score) => {
-    if (score >= 80) return t('result.intervention.high');
-    if (score >= 60) return t('result.intervention.moderate');
-    return t('result.intervention.low');
-  };
+  }, [user, t]);
 
   const getScoreColor = (score) => {
     if (score >= 80) return 'text-grit-high';
