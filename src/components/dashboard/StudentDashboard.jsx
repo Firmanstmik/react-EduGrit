@@ -44,10 +44,10 @@ const StudentDashboard = () => {
   };
 
   const chartData = gritData ? [
-    { name: t('grit.analysis'), value: gritData.detailedAnalysis.perseverance },
-    { name: t('grit.analysis'), value: gritData.detailedAnalysis.passion },
-    { name: t('grit.analysis'), value: gritData.detailedAnalysis.resilience },
-    { name: t('grit.analysis'), value: gritData.detailedAnalysis.focus }
+    { name: 'Ketekunan', value: gritData.detailedAnalysis.perseverance },
+    { name: 'Gairah', value: gritData.detailedAnalysis.passion },
+    { name: 'Ketahanan', value: gritData.detailedAnalysis.resilience },
+    { name: 'Fokus', value: gritData.detailedAnalysis.focus }
   ] : [];
 
   if (loading) {
