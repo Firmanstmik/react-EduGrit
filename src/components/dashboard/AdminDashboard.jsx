@@ -26,9 +26,9 @@ const AdminDashboard = () => {
           { id: 3, text: 'Jadwal kuliah terlalu padat', date: '2024-01-18', isAnonymous: true }
         ],
         users: [
-          { id: 1, name: 'Ahmad Rizki', username: '2021001', role: 'student', email: 'ahmad@student.stmik.ac.id', status: 'active' },
-          { id: 2, name: 'Dr. Budi Santoso', username: 'dosen001', role: 'advisor', email: 'budi@stmik.ac.id', status: 'active' },
-          { id: 3, name: 'Prof. Maya Sari', username: 'kaprodi_ti', role: 'kaprodi', email: 'maya@stmik.ac.id', status: 'active' }
+          { id: 1, name: 'Firman Maulana', username: 'TI19220003', role: 'student', email: 'firman@student.stmik.ac.id', status: 'active' },
+          { id: 2, name: 'Jihadul Akbar S.Kom.,M.Kom', username: 'dosen001', role: 'advisor', email: 'jihadul@stmik.ac.id', status: 'active' },
+          { id: 3, name: 'Sofiansyah Fadli S.Kom.,M.Kom', username: 'kaprodi_ti', role: 'kaprodi', email: 'sofiansyah@stmik.ac.id', status: 'active' }
         ]
       });
       setLoading(false);
