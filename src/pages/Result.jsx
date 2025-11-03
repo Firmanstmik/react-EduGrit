@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../contexts/AuthContext';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Card from '../components/Card';
 
 const Result = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { user } = useAuth();
   const [analysisResult, setAnalysisResult] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -17,7 +19,7 @@ const Result = () => {
     setTimeout(() => {
       // Mock analysis result
       const mockResult = {
-        studentName: surveyData.name || 'Mahasiswa',
+        studentName: user?.name || surveyData.name || 'Mahasiswa',
         gritScore: Math.floor(Math.random() * 40) + 60, // Random score between 60-100
         keywords: ['motivasi', 'tujuan', 'ketekunan', 'tantangan', 'semangat'],
         intervention: getIntervention(Math.floor(Math.random() * 40) + 60),
@@ -32,7 +34,7 @@ const Result = () => {
       setAnalysisResult(mockResult);
       setLoading(false);
     }, 2000);
-  }, []);
+  }, [user]);
 
   const getIntervention = (score) => {
     if (score >= 80) return t('result.intervention.high');
